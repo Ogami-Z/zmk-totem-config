@@ -39,7 +39,7 @@
         // ┏━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┓
         // ┃ HYPER     ┃ Z         ┃ X         ┃ C         ┃ V         ┃ B         ┃   ┃ N         ┃ M         ┃ ,         ┃ .         ┃ '         ┃ '         ┃
         // ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
-        //                                     ┃ ESC       ┃ -         ┃ TAB       ┃   ┃ ENTER     ┃ SPACE     ┃ DEL       ┃
+        //                                     ┃ ESC       ┃ -         ┃ TAB       ┃   ┃ ENTER     ┃ SPACE     ┃ BACKSPACE ┃
         //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
         bindings = <
         // ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
@@ -47,7 +47,7 @@
                         &kp Q       &kp W       &kp E       &kp R       &kp T           &kp Y       &kp U       &kp I       &kp O       &kp P
                         &mt LGUI A  &mt LCTRL S  &mt LALT D &mt LSHFT F &kp G           &kp H       &mt RSHFT J &mt RALT K &mt RCTRL L  &mt RGUI SEMI
             HYPER       &kp Z       &kp X       &kp C       &kp V       &kp B           &kp N       &kp M       &kp COMMA   &kp DOT     &kp SINGLE_QUOTE    &caps_word
-                                                &lt FUN ESC &lt BRCKT MINUS &lt NUM TAB   &lt NAV ENTER &lt SYM SPACE &kp DEL
+                                                &lt FUN ESC &lt BRCKT MINUS &lt NUM TAB   &lt NAV ENTER &lt SYM SPACE &kp BACKSPACE
         >;
       };
 
