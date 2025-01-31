@@ -62,10 +62,10 @@
             //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
 
             bindings = <
-       &kp LG(Z)  &kp LG(X)  &kp LG(C)  &kp LG(V)  &kp LS(LG(Z))    &kp LS(LG(Z))  &kp LG(V)  &kp LG(C)  &kp LG(X)  &kp LG(Z)
-       &kp LGUI   &kp LCTRL  &kp LALT   &kp LSHFT  &none            &kp LEFT       &kp DOWN   &kp UP     &kp RIGHT  &caps_word
-&none  &kp LG(Z)  &kp LG(X)  &kp LG(C)  &kp LG(V)  &kp LS(LG(Z))    &kp INS        &kp PG_DN  &kp PG_UP  &kp HOME   &kp END     &none
-                             &none      &none      &none            &trans         &none      &none
+       &kp NUMBER_1      &kp NUMBER_2      &kp NUMBER_3       &kp NUMBER_4      &kp N5        &kp NUMBER_6  &kp N7     &kp N8     &kp N9     &kp N0
+       &kp LC(NUMBER_1)  &kp LC(NUMBER_2)  &kp LC(NUMBER_3)   &kp LC(NUMBER_4)  &kp LC(N5)    &kp LEFT      &kp DOWN   &kp UP     &kp RIGHT  &caps_word
+&none  &kp LG(NUMBER_6)  &kp LC(N7)        &kp C_VOLUME_DOWN  &kp C_VOL_UP      &kp K_MUTE    &kp INS       &kp PG_DN  &kp PG_UP  &kp HOME   &kp END     &none
+                                           &none              &none             &none         &trans        &none      &none
             >;
         };
 
