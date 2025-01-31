@@ -1,8 +1,8 @@
-#include <behaviors.dtsi>
-#include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/mouse.h>
-#include <dt-bindings/zmk/outputs.h>
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/pointing.h>
 
 #define BASE 0
 #define NAV  1
@@ -12,137 +12,121 @@
 #define BRCKT 5
 #define BUT  6
 #define GAME 7
-
 #define HYPER &kp LS(LC(LA(LGUI)))
 
-&caps_word {
-    continue-list = <UNDERSCORE MINUS>;
-};
+&caps_word { continue-list = <UNDERSCORE MINUS>; };
 
 &mt {
-  quick-tap-ms = <150>;
-  global-quick-tap;
-  flavor = "tap-preferred";
-  tapping-term-ms = <170>;
+    quick-tap-ms = <150>;
+    global-quick-tap;
+    flavor = "tap-preferred";
+    tapping-term-ms = <170>;
 };
 
-
 / {
-  keymap {
-    compatible = "zmk,keymap";
-      base_layer {
-        display-name = "Base";
-        //             ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
-        //             ┃ Q         ┃ W         ┃ E         ┃ R         ┃ T         ┃   ┃ Y         ┃ U         ┃ I         ┃ O         ┃ P         ┃
-        //             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
-        //             ┃ A         ┃ S         ┃ D         ┃ F         ┃ G         ┃   ┃ H         ┃ J         ┃ K         ┃ L         ┃ ;         ┃
-        // ┏━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┓
-        // ┃ HYPER     ┃ Z         ┃ X         ┃ C         ┃ V         ┃ B         ┃   ┃ N         ┃ M         ┃ ,         ┃ .         ┃ '         ┃ '         ┃
-        // ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
-        //                                     ┃ ESC       ┃ -         ┃ TAB       ┃   ┃ ENTER     ┃ SPACE     ┃ BACKSPACE ┃
-        //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
-        bindings = <
-        // ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
+    keymap {
+        compatible = "zmk,keymap";
 
-                        &kp Q       &kp W       &kp E       &kp R       &kp T           &kp Y       &kp U       &kp I       &kp O       &kp P
-                        &mt LGUI A  &mt LCTRL S  &mt LALT D &mt LSHFT F &kp G           &kp H       &mt RSHFT J &mt RALT K &mt RCTRL L  &mt RGUI SEMI
-            HYPER       &kp Z       &kp X       &kp C       &kp V       &kp B           &kp N       &kp M       &kp COMMA   &kp DOT     &kp SINGLE_QUOTE    &caps_word
-                                                &lt FUN ESC &lt BRCKT MINUS &lt NUM TAB   &lt NAV ENTER &lt SYM SPACE &kp BACKSPACE
-        >;
-      };
+        base_layer {
+            display-name = "Base";
 
-      nav_layer {
-        display-name = "Nav";
-        //             ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
-        //             ┃ UNDO      ┃ CUT       ┃ COPY      ┃ PASTE     ┃ REDO      ┃   ┃ REDO      ┃ PASTE     ┃ COPY      ┃ CUT       ┃ UNDO      ┃
-        //             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
-        //             ┃ SUPER     ┃ CTRL      ┃ ALT       ┃ SHIFT     ┃           ┃   ┃ ←         ┃ ↓         ┃ ↑         ┃ →         ┃ CAPS WRD  ┃
-        // ┏━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┓
-        // ┃           ┃ UNDO      ┃ CUT       ┃ COPY      ┃ PASTE     ┃ REDO      ┃   ┃ INSERT    ┃ PG DOWN   ┃ PG UP     ┃ HOME      ┃ END       ┃           ┃
-        // ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
-        //                                     ┃           ┃           ┃           ┃   ┃ ENTER     ┃           ┃           ┃
-        //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
-        bindings = <
-                        &kp LG(Z)   &kp LG(X)   &kp LG(C)   &kp LG(V)   &kp LS(LG(Z))   &kp LS(LG(Z)) &kp LG(V)   &kp LG(C)   &kp LG(X)   &kp LG(Z)
-                        &kp LGUI    &kp LCTRL    &kp LALT   &kp LSHFT   &none           &kp LEFT      &kp DOWN    &kp UP      &kp RIGHT   &caps_word
-            &none       &kp LG(Z)   &kp LG(X)   &kp LG(C)   &kp LG(V)   &kp LS(LG(Z))   &kp INS       &kp PG_DN   &kp PG_UP   &kp HOME    &kp END     &none
-                                                &none       &none       &none           &trans        &none    &none
-        >;
-      };
-
-      num_layer {
-        display-name = "Numbers";
-        bindings = <
-        // ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
-
-                        &none    &kp LBKT      &kp CARET     &kp RBKT      &kp ASTRK       &kp SLASH       &kp N4       &kp N5       &kp N9       &kp ASTRK
-                        &none    &kp LPAR      &kp DLLR      &kp RPAR      &kp QMARK       &kp DOT         &kp N1       &kp N2       &kp N3       &kp MINUS
-            &trans      &none    &kp LBRC      &kp HASH      &kp RBRC      &kp PIPE        &kp COMMA       &kp N8       &kp N6       &kp N7       &kp PLUS       &none
-                                               &none         &none         &trans          &kp BSLH        &kp N0       &kp EQUAL
-        >;
-      };
-
-      sym_layer {
-        display-name = "Symbols";
-        bindings = <
-                        &trans      &kp DOT      &kp STAR   &kp AMPS    &kp PLUS        &trans       &trans       &trans       &trans       &trans
-                        &kp COLON   &kp QMARK    &kp EXCL   &kp SLASH   &kp PIPE        &trans       &kp RSHFT    &kp RALT   &kp RCTRL    &kp RGUI
-            &trans      &kp UNDER   &kp GRAVE    &kp TILDE  &kp PERCENT &kp AT_SIGN     &trans       &trans       &trans       &trans       &trans       &trans
-                                                 &kp ESC    &kp EQUAL   &kp BSLH        &none        &trans       &none
-        >;
-      };
-
-      fun_layer {
-        display-name = "Functions";
-        bindings = <
-        // ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
-
-                        &to GAME      &kp C_VOL_DN    &kp C_MUTE       &kp C_VOL_UP  &kp PSCRN       &none       &kp F4       &kp F5       &kp F9       &kp 12
-                        &none         &kp C_PREV      &kp C_PLAY_PAUSE &kp C_NEXT    &kp C_STOP      &none       &kp F1       &kp F2       &kp F3       &kp F11
-             &to BUT    &bt BT_CLR    &bt BT_SEL 0    &bt BT_SEL 1     &bt BT_SEL 2  &bt BT_SEL 3    &none       &kp F8       &kp F6       &kp F7       &kp F10       &trans
-                                                      &trans           &none         &none           &none       &kp C_BRI_DN &kp C_BRI_UP
-        >;
-      };
-
-      brckt_layer {
-        display-name = "Brackets";
-        bindings = <
-                        &trans      &kp DOT      &kp STAR   &kp AMPS    &kp PLUS        &kp ASTRK       &kp LBKT      &kp CARET     &kp RBKT      &none 
-                        &kp COLON   &kp QMARK    &kp EXCL   &kp SLASH   &kp PIPE        &kp QMARK       &kp LPAR      &kp DLLR      &kp RPAR      &none
-            &trans      &kp UNDER   &kp GRAVE    &kp TILDE  &kp PERCENT &kp AT_SIGN     &kp PIPE        &kp LBRC      &kp HASH      &kp RBRC      &none     &none
-                                                 &none      &trans      &none           &kp ENTER       &kp SLASH     &kp DEL
-        >;
-      };
-
-      but_layer {
-        display-name = "Buttons";
-        //             ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
-        //             ┃ UNDO      ┃ CUT       ┃ COPY      ┃ PASTE     ┃ REDO      ┃   ┃ REDO      ┃ PASTE     ┃ COPY      ┃ CUT       ┃ UNDO      ┃
-        //             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
-        //             ┃ SUPER     ┃ CTRL      ┃ ALT       ┃ SHIFT     ┃ BASE LAY  ┃   ┃ BASE LAY  ┃ SHIFT     ┃ ALT       ┃ CTRL      ┃ SUPER     ┃
-        // ┏━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┓
-        // ┃ SOFT OFF  ┃ UNDO      ┃ CUT       ┃ COPY      ┃ PASTE     ┃ REDO      ┃   ┃ REDO      ┃ PASTE     ┃ COPY      ┃ CUT       ┃ UNDO      ┃ SOFT OFF  ┃
-        // ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
-        //                                     ┃ MIDDLE    ┃ LEFT      ┃ RIGHT     ┃   ┃ RIGHT     ┃ LEFT      ┃ MIDDLE    ┃
-        //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
-        bindings = <
-        // ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
-
-                        &kp LG(Z)   &kp LG(X)   &kp LG(C)   &kp LG(V)   &kp LS(LG(Z))   &kp LS(LG(Z)) &kp LG(V) &kp LG(C)   &kp LG(X)   &kp LG(Z)
-                        &kp LGUI    &kp LCTRL    &kp LALT   &kp LSHFT   &to BASE        &to BASE      &kp RSHFT   &kp RALT   &kp RCTRL    &kp RGUI
-            &soft_off   &kp LG(Z)   &kp LG(X)   &kp LG(C)   &kp LG(V)   &kp LS(LG(Z))   &kp LS(LG(Z)) &kp LG(V) &kp LG(C)   &kp LG(X)   &kp LG(Z)   &soft_off
-                                                &mkp MCLK   &mkp LCLK   &mkp RCLK       &mkp RCLK   &mkp LCLK   &mkp MCLK
-        >;
-      };
-
-      game_layer {
-            label = "Game";
+            //             ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
+            //             ┃ Q         ┃ W         ┃ E         ┃ R         ┃ T         ┃   ┃ Y         ┃ U         ┃ I         ┃ O         ┃ P         ┃
+            //             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
+            //             ┃ A         ┃ S         ┃ D         ┃ F         ┃ G         ┃   ┃ H         ┃ J         ┃ K         ┃ L         ┃ ;         ┃
+            // ┏━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┓
+            // ┃ HYPER     ┃ Z         ┃ X         ┃ C         ┃ V         ┃ B         ┃   ┃ N         ┃ M         ┃ ,         ┃ .         ┃ '         ┃ '         ┃
+            // ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
+            //                                     ┃ ESC       ┃ -         ┃ TAB       ┃   ┃ ENTER     ┃ SPACE     ┃ BACKSPACE ┃
+            //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
 
             bindings = <
-                        &kp TAB       &kp Q      &kp W        &kp E        &kp R          &trans      &tog GAME       &trans     &trans      &trans
-                        &kp LCTL      &kp A      &kp S        &kp D        &kp F          &to BASE    &trans          &trans     &trans      &trans
-            &trans      &kp LSHIFT    &kp Z      &kp X        &kp C        &kp V          &trans      &trans          &trans     &trans      &trans   &trans
-                                                 &kp B      &kp LCTL       &kp SPACE      &trans      &trans          &trans
+       &kp Q               &kp W               &kp E           &kp R        &kp T        &kp Y        &kp U        &kp I            &kp O             &kp P
+       &mt LEFT_CONTROL A  &mt LCTRL LEFT_ALT  &mt LEFT_GUI D  &mt LSHFT F  &kp G        &kp H        &mt RSHFT J  &mt RIGHT_GUI K  &mt RIGHT_ALT L   &mt RIGHT_CONTROL ENTER
+&none  &kp Z               &kp X               &kp C           &kp V        &kp B        &kp N        &kp M        &kp DOT          &kp SINGLE_QUOTE  &kp BACKSPACE            &lt 4 ESC
+                                               &lt 5 MINUS     &kp SPACE    &lt 1 TAB    &lt 3 SPACE  &lt 2 ESC
+            >;
+        };
+
+        nav_layer {
+            display-name = "Nav";
+
+            //             ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
+            //             ┃ UNDO      ┃ CUT       ┃ COPY      ┃ PASTE     ┃ REDO      ┃   ┃ REDO      ┃ PASTE     ┃ COPY      ┃ CUT       ┃ UNDO      ┃
+            //             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
+            //             ┃ SUPER     ┃ CTRL      ┃ ALT       ┃ SHIFT     ┃           ┃   ┃ ←         ┃ ↓         ┃ ↑         ┃ →         ┃ CAPS WRD  ┃
+            // ┏━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┓
+            // ┃           ┃ UNDO      ┃ CUT       ┃ COPY      ┃ PASTE     ┃ REDO      ┃   ┃ INSERT    ┃ PG DOWN   ┃ PG UP     ┃ HOME      ┃ END       ┃           ┃
+            // ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
+            //                                     ┃           ┃           ┃           ┃   ┃ ENTER     ┃           ┃           ┃
+            //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
+
+            bindings = <
+       &kp LG(Z)  &kp LG(X)  &kp LG(C)  &kp LG(V)  &kp LS(LG(Z))    &kp LS(LG(Z))  &kp LG(V)  &kp LG(C)  &kp LG(X)  &kp LG(Z)
+       &kp LGUI   &kp LCTRL  &kp LALT   &kp LSHFT  &none            &kp LEFT       &kp DOWN   &kp UP     &kp RIGHT  &caps_word
+&none  &kp LG(Z)  &kp LG(X)  &kp LG(C)  &kp LG(V)  &kp LS(LG(Z))    &kp INS        &kp PG_DN  &kp PG_UP  &kp HOME   &kp END     &none
+                             &none      &none      &none            &trans         &none      &none
+            >;
+        };
+
+        num_layer {
+            display-name = "Numbers";
+            bindings = <
+        &none  &kp LBKT  &kp CARET  &kp RBKT  &kp ASTRK    &kp SLASH  &kp N4  &kp N5     &kp N9  &kp ASTRK
+        &none  &kp LPAR  &kp DLLR   &kp RPAR  &kp QMARK    &kp DOT    &kp N1  &kp N2     &kp N3  &kp MINUS
+&trans  &none  &kp LBRC  &kp HASH   &kp RBRC  &kp PIPE     &kp COMMA  &kp N8  &kp N6     &kp N7  &kp PLUS   &none
+                         &none      &none     &trans       &kp BSLH   &kp N0  &kp EQUAL
+            >;
+        };
+
+        sym_layer {
+            display-name = "Symbols";
+            bindings = <
+        &trans     &kp DOT    &kp STAR   &kp AMPS     &kp PLUS       &trans  &trans     &trans    &trans     &trans
+        &kp COLON  &kp QMARK  &kp EXCL   &kp SLASH    &kp PIPE       &trans  &kp RSHFT  &kp RALT  &kp RCTRL  &kp RGUI
+&trans  &kp UNDER  &kp GRAVE  &kp TILDE  &kp PERCENT  &kp AT_SIGN    &trans  &trans     &trans    &trans     &trans    &trans
+                              &kp ESC    &kp EQUAL    &kp BSLH       &none   &trans     &none
+            >;
+        };
+
+        fun_layer {
+            display-name = "Functions";
+            bindings = <
+       &to 0       &kp C_VOL_DN  &kp C_MUTE        &kp C_VOL_UP  &kp PSCRN       &none  &kp F4        &kp F5        &kp F9  &kp 12
+       &none       &kp C_PREV    &kp C_PLAY_PAUSE  &kp C_NEXT    &kp C_STOP      &none  &kp F1        &kp F2        &kp F3  &kp F11
+&to 6  &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1      &bt BT_SEL 2  &bt BT_SEL 3    &none  &kp F8        &kp F6        &kp F7  &kp F10  &trans
+                                 &trans            &none         &none           &none  &kp C_BRI_DN  &kp C_BRI_UP
+            >;
+        };
+
+        brckt_layer {
+            display-name = "Brackets";
+            bindings = <
+        &trans     &kp DOT    &kp STAR   &kp AMPS     &kp PLUS       &kp ASTRK  &kp LBKT   &kp CARET  &kp RBKT  &none
+        &kp COLON  &kp QMARK  &kp EXCL   &kp SLASH    &kp PIPE       &kp QMARK  &kp LPAR   &kp DLLR   &kp RPAR  &none
+&trans  &kp UNDER  &kp GRAVE  &kp TILDE  &kp PERCENT  &kp AT_SIGN    &kp PIPE   &kp LBRC   &kp HASH   &kp RBRC  &none  &none
+                              &none      &trans       &none          &kp ENTER  &kp SLASH  &kp DEL
+            >;
+        };
+
+        but_layer {
+            display-name = "Buttons";
+
+            //             ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
+            //             ┃ UNDO      ┃ CUT       ┃ COPY      ┃ PASTE     ┃ REDO      ┃   ┃ REDO      ┃ PASTE     ┃ COPY      ┃ CUT       ┃ UNDO      ┃
+            //             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
+            //             ┃ SUPER     ┃ CTRL      ┃ ALT       ┃ SHIFT     ┃ BASE LAY  ┃   ┃ BASE LAY  ┃ SHIFT     ┃ ALT       ┃ CTRL      ┃ SUPER     ┃
+            // ┏━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┓
+            // ┃ SOFT OFF  ┃ UNDO      ┃ CUT       ┃ COPY      ┃ PASTE     ┃ REDO      ┃   ┃ REDO      ┃ PASTE     ┃ COPY      ┃ CUT       ┃ UNDO      ┃ SOFT OFF  ┃
+            // ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
+            //                                     ┃ MIDDLE    ┃ LEFT      ┃ RIGHT     ┃   ┃ RIGHT     ┃ LEFT      ┃ MIDDLE    ┃
+            //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
+
+            bindings = <
+           &kp LG(Z)  &kp LG(X)  &kp LG(C)  &kp LG(V)  &kp LS(LG(Z))    &kp LS(LG(Z))  &kp LG(V)  &kp LG(C)  &kp LG(X)  &kp LG(Z)
+           &kp LGUI   &kp LCTRL  &kp LALT   &kp LSHFT  &to 0            &to 0          &kp RSHFT  &kp RALT   &kp RCTRL  &kp RGUI
+&soft_off  &kp LG(Z)  &kp LG(X)  &kp LG(C)  &kp LG(V)  &kp LS(LG(Z))    &kp LS(LG(Z))  &kp LG(V)  &kp LG(C)  &kp LG(X)  &kp LG(Z)  &soft_off
+                                 &mkp MCLK  &mkp LCLK  &mkp RCLK        &mkp RCLK      &mkp LCLK  &mkp MCLK
             >;
         };
     };
