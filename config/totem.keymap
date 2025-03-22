@@ -157,10 +157,10 @@
             //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
 
             bindings = <
-            &kp Q                 &kp W            &kp E            &kp R         &kp T        &kp Y        &kp U              &kp I             &kp O             &kp P
-            &hmla LEFT_CONTROL A  &hml LEFT_ALT S  &hml LEFT_GUI D  &hml LSHFT F  &kp G        &kp H        &hmr RSHFT J       &hmr RIGHT_GUI K  &hmr RIGHT_ALT L  &hmrc RIGHT_CONTROL ENTER
-&tgl_num 1  &kp Z                 &kp X            &kp C            &kp V         &kp B        &kp N        &kp M              &kp COMMA         &kp DOT           &kp BACKSPACE              &lt 4 ESC
-                                                   &lt 2 MINUS      &kp SPACE     &lt 2 TAB    &lt 3 SPACE  &lt 1 RIGHT_SHIFT  &none
+       &kp Q                 &kp W            &kp E            &kp R         &kp T        &kp Y        &kp U              &kp I             &kp O             &kp P
+       &hmla LEFT_CONTROL A  &hml LEFT_ALT S  &hml LEFT_GUI D  &hml LSHFT F  &kp G        &kp H        &hmr RSHFT J       &hmr RIGHT_GUI K  &hmr RIGHT_ALT L  &hmrc RIGHT_CONTROL ENTER
+&to 1  &kp Z                 &kp X            &kp C            &kp V         &kp B        &kp N        &kp M              &kp COMMA         &kp DOT           &kp BACKSPACE              &lt 4 ESC
+                                              &lt 2 MINUS      &kp SPACE     &lt 2 TAB    &lt 3 SPACE  &lt 1 RIGHT_SHIFT  &none
             >;
         };
 
@@ -178,10 +178,10 @@
             //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
 
             bindings = <
-            &kp NUMBER_1      &kp NUMBER_2      &kp NUMBER_3       &kp NUMBER_4      &kp N5        &kp NUMBER_6  &kp N7    &kp N8        &kp N9      &kp N0
-            &kp LC(NUMBER_1)  &kp LC(NUMBER_2)  &kp LC(NUMBER_3)   &kp LC(NUMBER_4)  &kp LC(N5)    &kp LEFT      &kp DOWN  &kp UP        &kp RIGHT   &kp PAGE_UP
-&tgl_num 0  &kp LC(NUMBER_6)  &kp LC(N7)        &kp C_VOLUME_DOWN  &kp C_VOL_UP      &kp K_MUTE    &kp HOME      &kp END   &kp KP_COMMA  &kp PERIOD  &kp PAGE_DOWN  &none
-                                                &none              &none             &none         &trans        &none     &none
+       &kp NUMBER_1      &kp NUMBER_2      &kp NUMBER_3       &kp NUMBER_4      &kp N5        &kp NUMBER_6  &kp N7    &kp N8        &kp N9      &kp N0
+       &kp LC(NUMBER_1)  &kp LC(NUMBER_2)  &kp LC(NUMBER_3)   &kp LC(NUMBER_4)  &kp LC(N5)    &kp LEFT      &kp DOWN  &kp UP        &kp RIGHT   &kp PAGE_UP
+&to 0  &kp LC(NUMBER_6)  &kp LC(N7)        &kp C_VOLUME_DOWN  &kp C_VOL_UP      &kp K_MUTE    &kp HOME      &kp END   &kp KP_COMMA  &kp PERIOD  &kp PAGE_DOWN  &none
+                                           &none              &none             &none         &trans        &none     &none
             >;
         };
 
