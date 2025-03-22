@@ -93,6 +93,15 @@
             #binding-cells = <1>;
             toggle-mode = "off";
         };
+
+        th1: th1 {
+            compatible = "zmk,behavior-hold-tap";
+            label = "TH1";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+        };
     };
 
     combos {
@@ -178,10 +187,10 @@
             //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
 
             bindings = <
-       &kp NUMBER_1      &kp NUMBER_2      &kp NUMBER_3       &kp NUMBER_4      &kp N5        &kp NUMBER_6  &kp N7    &kp N8        &kp N9      &kp N0
-       &kp LC(NUMBER_1)  &kp LC(NUMBER_2)  &kp LC(NUMBER_3)   &kp LC(NUMBER_4)  &kp LC(N5)    &kp LEFT      &kp DOWN  &kp UP        &kp RIGHT   &kp PAGE_UP
-&to 0  &kp LC(NUMBER_6)  &kp LC(N7)        &kp C_VOLUME_DOWN  &kp C_VOL_UP      &kp K_MUTE    &kp HOME      &kp END   &kp KP_COMMA  &kp PERIOD  &kp PAGE_DOWN  &none
-                                           &none              &none             &none         &trans        &none     &none
+       &kp NUMBER_1      &kp NUMBER_2      &kp NUMBER_3       &kp NUMBER_4      &kp N5        &kp NUMBER_6  &kp N7    &kp N8              &kp N9                 &kp N0
+       &kp LC(NUMBER_1)  &kp LC(NUMBER_2)  &kp LC(NUMBER_3)   &kp LC(NUMBER_4)  &kp LC(N5)    &kp LEFT      &kp DOWN  &kp UP              &kp RIGHT              &kp ENTER
+&to 0  &kp LC(NUMBER_6)  &kp LC(N7)        &kp C_VOLUME_DOWN  &kp C_VOL_UP      &kp K_MUTE    &kp HOME      &kp END   &th1 PAGE_UP COMMA  &th1 PAGE_DOWN PERIOD  &kp BACKSPACE  &none
+                                           &none              &kp SPACE         &none         &trans        &none     &none
             >;
         };
 
