@@ -154,6 +154,16 @@
             bindings = <&kp LG(LA(V))>;
             key-positions = <5 6 7>;
         };
+
+        screenshot {
+            bindings = <&kp LS(LG(NUMBER_3))>;
+            key-positions = <3 2 1>;
+        };
+
+        screenshot_select {
+            bindings = <&kp LS(LG(NUMBER_4))>;
+            key-positions = <4 3 2>;
+        };
     };
 
     keymap {
