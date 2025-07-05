@@ -164,6 +164,16 @@
             bindings = <&kp LS(LG(NUMBER_4))>;
             key-positions = <4 3 2>;
         };
+
+        single_quotes {
+            bindings = <&kp SINGLE_QUOTE>;
+            key-positions = <23 22>;
+        };
+
+        double_quotes {
+            bindings = <&kp DOUBLE_QUOTES>;
+            key-positions = <24 23>;
+        };
     };
 
     keymap {
