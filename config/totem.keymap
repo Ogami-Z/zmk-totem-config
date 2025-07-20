@@ -193,10 +193,10 @@
             //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
 
             bindings = <
-      &kp Q                 &kp W            &kp E            &kp R         &kp T        &kp Y        &kp U              &kp I             &kp O              &kp P
-      &hmla LEFT_CONTROL A  &hml LEFT_ALT S  &hml LEFT_GUI D  &hml LSHFT F  &kp G        &kp H        &hmr RSHFT J       &hmr RIGHT_GUI K  &hmrc RIGHT_ALT L  &hmrc RIGHT_CONTROL ENTER
-&td1  &kp Z                 &kp X            &kp C            &kp V         &kp B        &kp N        &kp M              &kp COMMA         &kp DOT            &kp BACKSPACE              &lt 4 ESC
-                                             &lt 2 MINUS      &kp SPACE     &lt 2 TAB    &lt 3 SPACE  &lt 1 RIGHT_SHIFT  &none
+       &kp Q                 &kp W            &kp E                            &kp R         &kp T        &kp Y        &kp U              &kp I                     &kp O              &kp P
+       &hmla LEFT_CONTROL A  &hml LEFT_ALT S  &hml LEFT_GUI D                  &hml LSHFT F  &kp G        &kp H        &hmr RSHFT J       &hmr RIGHT_GUI K          &hmrc RIGHT_ALT L  &hmrc RIGHT_CONTROL ENTER
+&mo 1  &kp Z                 &kp X            &kp C                            &kp V         &kp B        &kp N        &kp M              &kp COMMA                 &kp DOT            &kp BACKSPACE              &lt 4 ESC
+                                              &th1 LS(LA(LC(LEFT_GUI))) MINUS  &kp SPACE     &lt 2 TAB    &lt 3 SPACE  &lt 1 RIGHT_SHIFT  &kp LS(LA(LC(LEFT_GUI)))
             >;
         };
 
